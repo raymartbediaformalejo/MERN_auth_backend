@@ -16,8 +16,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser());
-
 app.use(
   cors({
     origin: ["https://mern-auth-ashy.vercel.app", "http://localhost:2000"],
@@ -25,6 +23,7 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
+app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 
