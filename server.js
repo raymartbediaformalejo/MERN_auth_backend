@@ -18,6 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
+app.use(
+  cors({
+    origin: ["https://mern-auth-ashy.vercel.app", "http://localhost:2000"],
+    credentials: true,
+    optionsSuccessStatus: 200,
+  })
+);
+
 app.use("/api/users", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
